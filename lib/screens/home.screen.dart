@@ -25,8 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   IconData _icon = Icons.check_circle;
 
-  void _handleButtonPressed() async {
-    FocusScope.of(context).unfocus();
+  Future _handleAnimations() async {
     setState(() {
       _btnWidth = 0;
       _btnHeight = 0;
@@ -36,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _loaderOpacity = 1;
     });
+    // TODO: Connect to backend
     await Future.delayed(Duration(seconds: 3));
     setState(() {
       _loaderOpacity = 0;
@@ -47,17 +47,19 @@ class _HomeScreenState extends State<HomeScreen> {
       _btnHeight = 100;
       _btnWidth = 150;
     });
+  }
+
+  void _handleButtonPressed() async {
+    FocusScope.of(context).unfocus();
+    await _handleAnimations();
     if (_formKey.currentState.validate()) {
       setState(() {
         _icon = Icons.check_circle;
       });
       Alerts.showSnackBar(_scaffoldKey, 'Button pressed', color: Colors.green);
-    } else {
-      setState(() {
-        _icon = Icons.cancel;
-      });
-      Alerts.showSnackBar(_scaffoldKey, 'Button pressed', color: Colors.red);
-    }
+    } else
+      Alerts.showSnackBar(_scaffoldKey, 'Fill the search field',
+          color: Colors.red);
   }
 
   @override
