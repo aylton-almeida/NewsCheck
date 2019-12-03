@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_check/screens/HomeScreen/index.dart';
+import 'package:news_check/screens/home.screen.dart';
 
 class Routes {
   final routes = <String, WidgetBuilder>{
@@ -7,7 +7,7 @@ class Routes {
   };
 
   final appTheme = ThemeData(
-    primaryColor: Color(0xFFDDDDDD),
+    primaryColor: Color(0xFF2C4495),
     accentColor: Color(0xFF2C4495),
     cursorColor: Color(0xFF2C4495),
     buttonColor: Color(0xFF2C4495),

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:news_check/screens/HomeScreen/index.dart';
+import 'package:news_check/screens/home.screen.dart';
 
 import 'createWidgetForTesting.dart';
 
