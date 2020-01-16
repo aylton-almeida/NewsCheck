@@ -3,7 +3,7 @@ import 'package:news_check/screens/home.screen.dart';
 
 class Routes {
   final routes = <String, WidgetBuilder>{
-    '/': (context) => HomeScreen(),
+    HomeScreen.route: (context) => HomeScreen(),
   };
 
   final appTheme = ThemeData(
@@ -16,9 +16,10 @@ class Routes {
   );
 
   Routes() {
+
     runApp(MaterialApp(
       title: 'NewsCheck',
-      initialRoute: '/',
+      initialRoute: HomeScreen.route,
       theme: appTheme,
       routes: routes,
     ));

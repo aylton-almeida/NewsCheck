@@ -6,4 +6,9 @@ abstract class Validators {
     if (value.isEmpty) return 'Fill this field';
     return null;
   }
+
+  static String requireUrl(String value){
+    if (!value.contains('http://') && !value.contains('https://')) return 'Insert a valid URL';
+    return require(value);
+  }
 }

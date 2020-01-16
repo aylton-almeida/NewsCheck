@@ -14,6 +14,7 @@ class OutlinedTextField extends StatefulWidget {
   final TextCapitalization textCapitalization;
   final Function onChanged;
   final Icon prefixIcon;
+  final int maxLines;
 
   OutlinedTextField({
     Key key,
@@ -28,6 +29,7 @@ class OutlinedTextField extends StatefulWidget {
     this.textCapitalization,
     this.onChanged,
     this.prefixIcon,
+    this.maxLines,
   }) : super(key: key);
 
   _OutlinedTextFieldState createState() => _OutlinedTextFieldState();
@@ -37,6 +39,7 @@ class _OutlinedTextFieldState extends State<OutlinedTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLines,
       controller: widget.controller,
       autocorrect: widget.autocorrect ?? true,
       validator: widget.validator,
