@@ -5,10 +5,10 @@ import 'package:news_check/models/ResponseModel.dart';
 
 abstract class NewsService {
 
-  final address = "10.48.46.70";
+  static final _address = "<INSERT YOUR IPv4 HERE>";
 
   static Future<bool> validateUrl(String text) async {
-    String url = "http://10.48.46.70:5000/checkUrl";
+    String url = "http://$_address:5000/checkUrl";
     Map<String, String> headers = {"Content-type": "application/json"};
 
     Response response = await post(url, headers: headers, body: text);
@@ -22,7 +22,7 @@ abstract class NewsService {
   }
 
   static Future<bool> validateText(String text) async{
-    String url = "http://10.48.46.70:5000/checkText";
+    String url = "http://$_address:5000/checkText";
     Map<String, String> headers = {"Contant-type": "application/json"};
 
     Response response = await post(url, headers: headers, body: text);
